@@ -1,6 +1,6 @@
-baseURL: http://example.org/
+baseURL: eliises.github.io
 languageCode: en-us
-title: "Toha"
+title: "EliiseS"
 theme: "toha"
 
 # Allow raw html in markdown file

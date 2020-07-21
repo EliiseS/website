@@ -40,3 +40,5 @@ jobs:
     - name: Release
       if: steps.filter.outputs.website == 'true'
       run: ./scripts/deploy.sh
+      env:
+        INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

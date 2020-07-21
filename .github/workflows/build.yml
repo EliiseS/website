@@ -1,0 +1,44 @@
+name: release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: webfactory/ssh-agent@v0.4.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_PUBLISH_KEY }}
+
+    - uses: dorny/paths-filter@v2.2.0
+      id: filter
+      with:
+        # inline YAML or path to separate file (e.g.: .github/filters.yaml)
+        filters: |
+          website:
+            - '.website/**/*'
+          devcontainer:
+            - '.devcontainer/**/*'
+    
+    - name: Build devcontainer
+      # if: steps.filter.outputs.devcontainer == 'true' || steps.filter.outputs.website == 'true'
+      run: docker build -f .devcontainer/Dockerfile -t devcontainer .
+      
+    - name: Build website
+      # if: steps.filter.outputs.website == 'true'
+      run: |
+        git submodule update --init
+        docker run \
+          --entrypoint /bin/bash \
+          -v $GITHUB_WORKSPACE:/src \
+          --workdir /src \
+          devcontainer \
+          -c ./scripts/build.sh
+
+    - name: Release
+      # if: steps.filter.outputs.website == 'true'
+      run: ./scripts/deploy.sh

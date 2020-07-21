@@ -8,8 +8,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Configure apt and install packages
 RUN apt update \
     && apt -y install --no-install-recommends apt-utils dialog wget ca-certificates 2>&1 \
-    # Verify git, process tools, lsb-release (common in install instructions for CLIs), unzip installed
-    && apt -y install git procps lsb-release unzip \
+    # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
+    && apt -y install git procps lsb-release unzip build-essential \
     # Install missing icu-devtools to be able to use liveshare. More info: https://stackoverflow.com/questions/58736399/how-to-get-vscode-liveshare-extension-working-when-running-inside-vscode-remote
     && apt install icu-devtools -y \
     #

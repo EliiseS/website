@@ -6,8 +6,8 @@ set -e
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 cd website/public
-filesChanged = git status --porcelain=v1 2>/dev/null | wc -l
-if [ filesChanged -eq 0 ]; then
+filesChanged=$(git status --porcelain=v1 2>/dev/null | wc -l)
+if [ $filesChanged -eq 0 ]; then
 	exit 0
 fi
 

@@ -42,4 +42,4 @@ jobs:
       if: steps.filter.outputs.website == 'true'
       run: ./scripts/deploy.sh
       env:
-        INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        INPUT_GITHUB_TOKEN: ${{ secrets.PUBLISH_SITE_TOKEN }}

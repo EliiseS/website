@@ -19,6 +19,7 @@ jobs:
           website:
             - 'website/**/*'
             - '.github/**/*'
+            - '.scripts/**/*'
           devcontainer:
             - '.devcontainer/**/*'
     

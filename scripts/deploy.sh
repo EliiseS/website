@@ -29,10 +29,10 @@ git commit -m "$msg"
 
 # Push source and build repos.
 printf "\033[0;32m Push site submodule...\033[0m\n"
-git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/EliiseS/eliises.github.io.git"
+git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/EliiseS/eliises.github.io.git" HEAD:master
 
 printf "\033[0;32m Add submodule changes to this repo...\033[0m\n"
 cd -
 git add .
 git commit -m "$msg"
-git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
+git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git" HEAD:master

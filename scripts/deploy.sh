@@ -33,6 +33,9 @@ git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/EliiseS/eliis
 
 printf "\033[0;32m Add submodule changes to this repo...\033[0m\n"
 cd -
+# Add git config
+git config user.email "actions@github.com"
+git config user.name "Github Actions"
 git add .
 git commit -m "$msg"
 git push "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git" HEAD:master

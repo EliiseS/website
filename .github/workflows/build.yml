@@ -20,16 +20,17 @@ jobs:
         # inline YAML or path to separate file (e.g.: .github/filters.yaml)
         filters: |
           website:
-            - '.website/**/*'
+            - 'website/**/*'
+            - '.github/**/*'
           devcontainer:
             - '.devcontainer/**/*'
     
     - name: Build devcontainer
-      # if: steps.filter.outputs.devcontainer == 'true' || steps.filter.outputs.website == 'true'
+      if: steps.filter.outputs.devcontainer == 'true' || steps.filter.outputs.website == 'true'
       run: docker build -f .devcontainer/Dockerfile -t devcontainer .
       
     - name: Build website
-      # if: steps.filter.outputs.website == 'true'
+      if: steps.filter.outputs.website == 'true'
       run: |
         git submodule update --init
         docker run \
@@ -40,5 +41,5 @@ jobs:
           -c ./scripts/build.sh
 
     - name: Release
-      # if: steps.filter.outputs.website == 'true'
+      if: steps.filter.outputs.website == 'true'
       run: ./scripts/deploy.sh

@@ -26,7 +26,7 @@ RUN wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_
 RUN apt update \
     && apt -y install nodejs npm \
     # Install prettier
-    && npm install prettier prettier-plugin-go-template -D --save-exact \
+    && npm install prettier prettier-plugin-go-template -D --save-exact 
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog

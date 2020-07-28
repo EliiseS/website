@@ -5,3 +5,6 @@
 	path = website/public
 	url = https://github.com/EliiseS/eliises.github.io.git
 	branch = master
+[submodule "website/themes/AllinOne"]
+	path = website/themes/AllinOne
+	url = https://github.com/EliiseS/AllinOne.git

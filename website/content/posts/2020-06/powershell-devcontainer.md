@@ -1,13 +1,14 @@
 ---
 title: "PowerShell Core as default shell on a Debian devcontainer"
 date: 2020-06-08T08:06:25+06:00
-hero: /images/posts/installation/hero.svg
-author:
-  name: Eliise Seling
-#   image: /assets/images/profile-image.jpg
-categories:
-- powershell
-- devcontainer
+publishdate: 2020-06-08T08:06:25+06:00
+lastmod: 2020-06-08T08:06:25+06:00
+series: ["devcontainer"]
+draft: false
+toc: true
+img: "images/background/sunset.jpg"
+categories: ["powershell", "devcontainer"]
+
 ---
 
 Here we'll cover setting up powershell on a dev container with a `debian:buster` baseimage.

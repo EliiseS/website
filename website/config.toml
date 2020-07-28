@@ -1,0 +1,69 @@
+Paginate = 3
+baseURL = "https://eliises.github.io"
+builddrafts = false
+canonifyurls = true
+contentdir = "content"
+enableEmoji = true
+hasCJKLanguage = true
+languageCode = "en-us"
+layoutdir = "layouts"
+publishdir = "public"
+summaryLength = 20
+# analytics
+GoogleAnalytics = "UA-173967641-1"
+
+theme = "AllinOne"
+title = "Eliise Seling"
+
+pygmentsuseclasses = true
+
+[permalinks]
+blog = "posts/:year-:month/:slug/"
+
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+
+[menu]
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "posts/"
+weight = -120
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "about/"
+weight = -100
+
+[params]
+author = "Eliise Seling" 
+avatar = "images/avatar.jpg" # path to image in static dir e.g img/avatar.png 
+description = ["Develop.", "Myself.", "Go, K8s, terraform."] # appears in the site header when set to a non-empty string                    
+faviconfile = "img/zheng.png" # from static/
+welcome_head = "Hello, World!" 
+welcome_word = "~ No day like today ~" 
+
+bloggroupby = 'month' 
+dateform = "Jan 2, 2006" 
+dateformfull = "2006-01-02  Monday  15:04:05" 
+latestpostscount = 5 # how many posts to display on the home page
+noshowreadtime = false # if true, don't show "<x> minutes read" in posts
+
+# slides
+slidesDirPath = "themes/AllinOne/static/img/header-slides" # path to image in local dir (path for hugo)
+slidesDirPathURL = "img/header-slides" # path to image in static dir (for static pages)
+
+# highlighting 
+highlightjs = true
+
+# latex
+katex = true
+
+# links
+email = "selingeliise@gmail.com"
+github = "//github.com/eliises"
+linkedin = "//linkedin.com/in/eliises"
+twitter = "//twitter.com/eliises"

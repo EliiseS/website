@@ -16,15 +16,15 @@ jobs:
 
       - name: Build website
         run: |
-          git submodule update --init
+          make sync-submodules
           docker run \
             --entrypoint /bin/bash \
             -v $GITHUB_WORKSPACE:/src \
             --workdir /src \
             devcontainer \
-            -c ./scripts/build.sh
+            -c make build
 
       - name: Release
-        run: ./scripts/deploy.sh
+        run: make deploy
         env:
           INPUT_GITHUB_TOKEN: ${{ secrets.PUBLISH_SITE_TOKEN }}

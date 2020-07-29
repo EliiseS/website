@@ -6,7 +6,7 @@ set -e
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 # Populate modules
-git submodule update --init
+make sync-submodules
 
 # Build the project.
 ./scripts/build.sh

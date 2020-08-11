@@ -11,5 +11,5 @@ deploy:
 local-deploy:
 	./scripts/local-deploy.sh
 
-init-submodules:
+sync-submodules:
 	git submodule update --init

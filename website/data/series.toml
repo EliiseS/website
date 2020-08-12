@@ -1,4 +1,4 @@
 [[series]]
-img = "images/background/foggy-landscape-in-the-forest.jpg"
+img = "images/docker-vscode.png"
 name = "devcontainer"
-summary = "Everything I've written about devcontainers"
+summary = "Everything about devcontainers"

@@ -1,14 +1,13 @@
 ---
 title: "PowerShell Core as default shell on a Debian devcontainer"
-date: 2020-06-08T08:06:25+06:00
-publishdate: 2020-06-08T08:06:25+06:00
-lastmod: 2020-06-08T08:06:25+06:00
+date: 2020-04-15T11:35:28.303Z
+lastmod: 2020-04-15T11:35:28.303Z
 series: ["devcontainer"]
 draft: false
 toc: true
-img: "images/background/sunset.jpg"
-categories: ["powershell", "devcontainer"]
-
+img: "images/ps-devcontainer.png"
+categories: ["powershell"]
+noSummary: true
 ---
 
 Here we'll cover setting up powershell on a dev container with a `debian:buster` baseimage.
@@ -66,7 +65,6 @@ RUN \
     && pwsh -c "'New-Alias \"tf\" \"terraform\"' | Out-File -FilePath \$profile"
 ```
 
-
 # Complete files
 
 ## Dockerimage
@@ -111,19 +109,16 @@ ENV DEBIAN_FRONTEND=dialog
 
 ```json
 {
-	"name": "Debian 10 & PowerShell",
-	"dockerFile": "Dockerfile",
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/opt/microsoft/powershell/7/pwsh",
-	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-vscode.powershell"
-	]
+  "name": "Debian 10 & PowerShell",
+  "dockerFile": "Dockerfile",
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.shell.linux": "/opt/microsoft/powershell/7/pwsh"
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": ["ms-vscode.powershell"]
 }
 ```
-
 
 # Known issues
 
@@ -131,4 +126,3 @@ These are the issues that I've run into:
 
 - PowerShell Core has fewer modules and commands available when compared to Powershell
 - `Remove-Item` command has been unusable due to exasperated results with a known issue: https://github.com/PowerShell/PowerShell/issues/8211
-

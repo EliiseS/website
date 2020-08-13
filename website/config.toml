@@ -39,7 +39,11 @@ weight = -100
 [params]
 author = "Eliise Seling" 
 avatar = "images/avatar.jpg" # path to image in static dir e.g img/avatar.png 
-description = ["Develop.", "Myself.", "Go, K8s, terraform."] # appears in the site header when set to a non-empty string                           
+description = [
+  "Website - work in progress.",
+  "Biking, cats, tea, chocolate.",
+  "Go, K8s, terraform, open source.",
+] # appears in the site header when set to a non-empty string                                     
 faviconfile = "img/zheng.png" # from static/
 welcome_head = "Hello, World!" 
 welcome_word = "~ No day like today ~" 
@@ -61,6 +65,7 @@ highlightjs = true
 katex = true
 
 # links
+dev = "//dev.to/eliises"
 email = "selingeliise@gmail.com"
 github = "//github.com/eliises"
 linkedin = "//linkedin.com/in/eliises"

@@ -1,4 +1,4 @@
-Paginate = 3
+Paginate = 6
 baseURL = "https://eliises.github.io"
 builddrafts = false
 canonifyurls = true

@@ -3,7 +3,7 @@ title: "Debug Terraform (Azure Devops) Provider with VSCode"
 date: 2020-07-01T16:30:46Z
 lastmod: 2020-07-20T09:43:36Z
 toc: true
-categories: ["terraform, testing, go, vscode"]
+categories: [terraform, testing, go, vscode]
 noSummary: true
 ---
 

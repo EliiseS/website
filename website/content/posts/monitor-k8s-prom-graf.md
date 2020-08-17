@@ -2,7 +2,7 @@
 title: "Add monitoring with Prometheus/Grafana in Kubernetes"
 date: 2019-12-31T17:47:47Z
 toc: true
-categories: ["kubernetes, go, analytics"]
+categories: [kubernetes, go, analytics]
 noSummary: true
 ---
 

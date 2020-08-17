@@ -4,7 +4,7 @@ date: 2020-07-08T17:00:13Z
 series: ["devcontainer"]
 img: "images/dockerizing-devops/devops-loop.svg"
 toc: true
-categories: ["devops, vscode"]
+categories: [devops, vscode]
 summary: "Reusing a devcontainer build environment for pipelines"
 ---
 

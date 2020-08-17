@@ -2,7 +2,7 @@
 title: "Databricks Operator load testing"
 date: 2020-01-28T10:24:20Z
 toc: true
-categories: ["kubernetes, go, testing"]
+categories: [kubernetes, go, testing]
 noSummary: true
 ---
 

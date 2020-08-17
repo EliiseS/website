@@ -6,7 +6,7 @@ series: ["devcontainer"]
 draft: false
 toc: true
 img: "images/ps-devcontainer.png"
-categories: ["powershell, vscode"]
+categories: [powershell, vscode]
 noSummary: true
 ---
 

@@ -19,18 +19,18 @@ In the above simplified architecture diagram we can see:
 - [Databricks Operator](https://github.com/microsoft/azure-databricks-operator), the service under test
 - Databricks mock API, a mock API created to simulate the real [Databricks](https://databricks.com/) for these load tests
 - [Prometheus](https://prometheus.io/), gathers metrics on the above services throughout the test
-- [Grafana](https://grafana.com/), displays metrics gathered by Prometheus 
+- [Grafana](https://grafana.com/), displays metrics gathered by Prometheus
 
 # The methodology
 
 The steps for this load testing methodology consists of:
 
-1. Define scenarios 
+1. Define scenarios
 2. Run a load tests based on a scenario
 3. Create a hypothesis if unhappy with the results
    1. Re-run load tests with the changes from the hypothesis
    2. Go to step 3
-4. Repeat until all scenarios are covered 
+4. Repeat until all scenarios are covered
 
 # Defining scenarios
 
@@ -61,7 +61,6 @@ Notes
 
 To run a scenario, we'll start by making the load test environment as static as we can to control as many variables as possible between runs. For the operator we achieved this by using automated deployment scripts, code freezes and documenting the images used for each load test. Here's a snippet of the deployment script using specific image tags:
 
-
 ```bash
 # The following variables control the versions of components that will be deployed
 MOCK_TAG=latest-20200117.3
@@ -72,7 +71,7 @@ LOCUST_FILE=behaviours/scenario2_run_submit.py
 
 ## Baseline
 
-We document the state of environment before load tests, as seen below. Then proceed with a baseline run, which is the first load test run in a scenario. 
+We document the state of environment before load tests, as seen below. Then proceed with a baseline run, which is the first load test run in a scenario.
 
 ```text
 Setup
@@ -94,7 +93,6 @@ An example of the metrics:
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/4ttnf2ch93g7e913n3pd.png)
 
-
 From the above metrics we discovered these key points:
 
 ```text
@@ -111,18 +109,18 @@ This lead into an investigation into the operator, where we saw the `time.sleep`
 
 The fix for `time.sleep` can be found here: <https://github.com/microsoft/azure-databricks-operator/pull/141>
 
-## Testing the hypothesis 
+## Testing the hypothesis
 
 We then tested this hypothesis by running a new load test and repeating the steps above. The only difference between this load test and the baseline is the image of the operator fork.
 
-With the fix, we can see below that the issues highlighted above have been solved, but has also revealed another issue of requests failing to be sent from the operator. 
+With the fix, we can see below that the issues highlighted above have been solved, but has also revealed another issue of requests failing to be sent from the operator.
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/30wxugujhuamv1a580ey.png)
 
 # Repeat
 
-To continue the cycle we'd create another hypothesis and then based on that hypothesis another load test. This would be repeated until we've reached the performance levels we've deemed acceptable when creating the scenario. 
+To continue the cycle we'd create another hypothesis and then based on that hypothesis another load test. This would be repeated until we've reached the performance levels we've deemed acceptable when creating the scenario.
 
-Then reassess the scenarios and repeat this for each scenario. 
+Then reassess the scenarios and repeat this for each scenario.
 
 # Conclusion
 

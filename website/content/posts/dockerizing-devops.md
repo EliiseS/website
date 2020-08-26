@@ -162,7 +162,7 @@ As a bonus, we can also cache our devcontainer image between runs to further red
 
 ```yml
     steps:
-      # Initialize caching 
+      # Initialize caching
       - task: Cache@2
         inputs:
           key: docker-image | .devcontainer/**
@@ -289,4 +289,3 @@ docker run `
 ## Epilogue
 
 While I'm clearly biased towards devcontainers I'd love hear what everyone else thinks on the matter. And do let me know if I've missed anything or if something is broken!
-

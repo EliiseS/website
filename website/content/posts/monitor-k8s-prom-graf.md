@@ -14,14 +14,12 @@ In this post I'd like to give a short overview on the parts needed to add monito
 - Intermediate knowledge of [K8](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/), [Docker](https://docs.docker.com/) and [GO](https://golang.org/)
 - Basic knowledge of what [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) is used for
 
-
 ## Summary
 
 1. Create a GO API with Prometheus `/metrics` endpoint
 2. Deploy API, service, service monitor to K8
 3. Deploy Prometheus to K8
 4. Access Grafana dashboards
-
 
 ## Create a GO API with Prometheus `/metrics` endpoint
 
@@ -97,7 +95,6 @@ func main() {
 }
 
 ```
-
 
 ## Deploy API, service, service monitor to K8
 
@@ -177,13 +174,12 @@ cat ./manifests/deployment.yaml | PROM_GO_API_IMAGE_NAME=$IMG envsubst | kubectl
 kubectl apply -f ./manifests/service.yaml
 ```
 
-
 ## Deploy Prometheus to K8
 
 Install the `prometheus-operator` helm chart
 
 ```bash
-# prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false means all serviceMonitors are discovered not just 
+# prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false means all serviceMonitors are discovered not just
 # those deployed by the helm chart itself
 helm install prom-test-api stable/prometheus-operator --set prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false
 ```

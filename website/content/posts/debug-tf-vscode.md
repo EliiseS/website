@@ -22,7 +22,7 @@ Prior to starting I was already able to run, debug the unit tests and run the ac
 - [Golang](https://golang.org/)
 - [Golang extension](https://marketplace.visualstudio.com/items?itemName=golang.Go) setup and configured
 
-The environment is also set up in the [Azure Devops devcontainer](https://github.com/terraform-providers/terraform-provider-azuredevops/tree/master/.devcontainer). The code below can also be found in the repository. 
+The environment is also set up in the [Azure Devops devcontainer](https://github.com/terraform-providers/terraform-provider-azuredevops/tree/master/.devcontainer). The code below can also be found in the repository.
 
 # Set up
 
@@ -49,7 +49,7 @@ Add the `launch.json` and `.env` below. Edit the `.env` file as needed for your 
             ],
             "env": {
                 "TF_ACC": "1",
-            },            
+            },
             "buildFlags": "-v -tags=all",
             "showLog": true,
             "envFile": "${workspaceFolder}/.env"

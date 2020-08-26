@@ -1,0 +1,44 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+eliises.github.io
+eliises
+AllinOne
+devcontainer
+Github
+submodules
+Makefile
+Eliise
+Seling
+kubernetes
+Databricks
+Grafana
+MockAPI
+devops
+codelens
+VSCode
+golang
+Meckel
+devcontainers
+AzBrowze
+makefiles
+tflint
+AzDO
+e.g.
+devcontainer.json
+PowerShell
+Dockerfile
+Orianna
+scrollspy
+Katex
+analytics
+url
+yaml
+ - website/themes/AllinOne/archetypes/default.md
+highlightjs
+v0.46.
+ - website/content/posts/dockerizing-devops.md
+azdo
+yml

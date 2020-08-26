@@ -1,0 +1,11 @@
+{
+    "default": true,
+    "MD001": false,
+    "MD004": {
+        "style": "dash"
+    },
+    "MD013": false,
+    "MD025": false,
+    "no-hard-tabs": false,
+    "whitespace": false
+}

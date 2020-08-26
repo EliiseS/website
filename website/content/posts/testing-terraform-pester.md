@@ -8,7 +8,7 @@ categories: [terraform, pester, testing]
 noSummary: true
 ---
 
-In this post I'd like show how you can create integrations tests for terraform with [Pester](https://github.com/pester/Pester), a powershell testing framework.
+In this post I'd like show how you can create integrations tests for terraform with [Pester](https://github.com/pester/Pester), a PowerShell testing framework.
 
 In this example I'll be using the [Azure DevOps terraform provider](https://www.terraform.io/docs/providers/azuredevops/index.html) along with the [Azure Devops CLI](https://docs.microsoft.com/en-us/azure/devops/cli/?view=azure-devops), but these are just examples that can be replaced as needed for your tests.
 
@@ -17,7 +17,7 @@ All code snippets can be found in [terraform-pester-devcontainer-example](https:
 # Environment
 
 - [Pester](https://github.com/pester/Pester) 4.10.1
-- Powershell Core
+- PowerShell Core
 - Terraform
 - [Azure DevOps terraform provider](https://www.terraform.io/docs/providers/azuredevops/index.html)
 - [Azure Devops CLI](https://docs.microsoft.com/en-us/azure/devops/cli/?view=azure-devops)

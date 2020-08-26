@@ -13,3 +13,16 @@ local-deploy:
 
 sync-submodules:
 	git submodule update --init
+
+lint: md-lint md-spell-check md-link-check
+
+md-link-check:
+	find . -type d \( -path "./node_modules" -o -path ./website/themes/AllinOne/exampleSite \)  -prune -false -o -name \*.md \
+	-exec  markdown-link-check -c .markdownlinkcheck.json {} \;
+
+md-spell-check:
+	 mdspell --en-us -a -n  '**/*.md' '!**/exampleSite/**'
+
+md-lint:
+	markdownlint '**/*.md' --ignore '**/exampleSite/**'
+	

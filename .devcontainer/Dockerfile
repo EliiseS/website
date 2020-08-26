@@ -25,8 +25,13 @@ RUN wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_
 # Install nodejs npm
 RUN apt update \
     && apt -y install nodejs npm \
+    && npm install npm@latest -g \
     # Install prettier
-    && npm install prettier prettier-plugin-go-template -D --save-exact 
+    && npm install prettier prettier-plugin-go-template -g \
+    # Install markdown linters
+    && npm install markdown-spellcheck -g \
+    && npm install markdown-link-check -g \
+    && npm install markdownlint-cli -g 
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog

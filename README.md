@@ -9,13 +9,13 @@ If you've spotted a typo in that blog, you're welcome to send me a pull request 
 
 ## Running and building locally
 
-The easiest way to build the site locally is to open the repository in the [devcontainer](.devcontainer/dockerfile), and then use the following command to build and start the site:
+The easiest way to build the site locally is to open the repository in the [devcontainer](.devcontainer/Dockerfile), and then use the following command to build and start the site:
 
 ```bash
 make start
 ```
 
-This will then start a local webserver. Changes to the content are watched, and the site will rebuild on change.
+This will then start a local web server. Changes to the content are watched, and the site will rebuild on change.
 
 You can then open the site at <http://localhost:1313>
 
@@ -47,7 +47,7 @@ make sync-submodules
 
 ## Makefile
 
-For convenience, there is a `Makefile` in this repo that defines the following rules:
+For convenience, there is a `Makefile` in this repository that defines the following rules:
 
 - `make build` to build the site
 - `make start` to build and then serve the site on <http://localhost:1313>

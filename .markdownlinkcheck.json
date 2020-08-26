@@ -1,0 +1,13 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^http://localhost:"
+        }
+    ],
+    "replacementPatterns": [
+        {
+            "pattern": "^/images",
+            "replacement": "/workspaces/website/website/static/images/"
+        }
+    ]
+}

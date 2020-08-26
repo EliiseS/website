@@ -30,7 +30,8 @@ Add the `launch.json` and `.env` below. Edit the `.env` file as needed for your 
 
 > NB: The `buildFlags` attribute was only needed for Azure Devops provider, for example, the Databricks provider work without it.
 
-`launch.json`
+##### `launch.json`
+
 ```json
 {
     "version": "0.2.0",
@@ -56,7 +57,9 @@ Add the `launch.json` and `.env` below. Edit the `.env` file as needed for your 
     ]
 }
 ```
+
 `.env`
+
 ```json
 AZDO_PERSONAL_ACCESS_TOKEN=<your_token>
 AZDO_ORG_SERVICE_URL=<your_azdo_org>
@@ -87,6 +90,7 @@ Highlight the name of the test you wish to run test in the test file and press `
 The missing piece to enable codelens debugging is to add the below flags to `go.testFlags` in `settings.json`
 
 #### **`settings.json`**
+
 ```json
 {
     "go.testFlags": [
@@ -102,4 +106,4 @@ Huge thanks to [Thomas Meckel](https://twitter.com/tmeckel3) for figuring this o
 
 # Credit
 
-Inspired by https://blog.gripdev.xyz/2019/09/12/easily-debugging-terraform-provider-for-azure-in-vscode/
+Inspired by <https://blog.gripdev.xyz/2019/09/12/easily-debugging-terraform-provider-for-azure-in-vscode/>

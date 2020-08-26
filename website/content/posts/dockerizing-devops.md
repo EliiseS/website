@@ -24,14 +24,16 @@ All code snippets can be found in [terraform-pester-devcontainer-example reposit
 ## About the project
 
 I've created the [terraform-pester-devcontainer-example repository](https://github.com/EliiseS/terraform-pester-devcontainer-example) to demonstrate devcontainer pipelines. The project consists of:
+
 - [terraform](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/main.tf) to provision resources in Azure Devops
-- [tests](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/tfIntegration.tests.ps1) covering the terraform written in Pester, a powershell testing framework
-   - More about testing terraform with Pester [in my previous post](https://dev.to/eliises/testing-terraform-with-pester-1b01)
+- [tests](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/tfIntegration.tests.ps1) covering the terraform written in Pester, a PowerShell testing framework
+  - More about testing terraform with Pester [in my previous post](https://dev.to/eliises/testing-terraform-with-pester-1b01)
 - [devcontainer](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/.devcontainer/Dockerfile) with the development environment
 
 ### CI pipeline checks
 
 In a CI pipeline for this project we want to:
+
 - validate terraform with tflint
 - run the Pester tests
 - validate the devcontainer can be built
@@ -41,6 +43,7 @@ In a CI pipeline for this project we want to:
 In a classic or standard pipeline, we first install the dependencies in the pipeline and then run our checks:
 
 ##### [.azdo/classic-pipeline.yml](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/.azdo/classic-pipeline.yml)
+
 ```yml
  steps:
       # Install dependencies
@@ -92,9 +95,9 @@ In a classic or standard pipeline, we first install the dependencies in the pipe
           script: docker build -f .devcontainer/Dockerfile -t devcontainer .
 ```
 
-### Build times
+### Classic build times
 
-Below we can see the time the build took. Installing dependencies locally is very fast, with majority of the time being spent on building the dev container. Looking at this, the best way to save time on your builds it by not using a devcontainer at all! Luckily, there are other benefits that more than make up for this gluttony.
+Below we can see the time the build took. Installing dependencies locally is very fast, with majority of the time being spent on building the devcontainer. Looking at this, the best way to save time on your builds it by not using a devcontainer at all! Luckily, there are other benefits that more than make up for this gluttony.
 
 ![Classic pipeline](/images/dockerizing-devops/classic-pipeline.png)
 
@@ -103,6 +106,7 @@ Below we can see the time the build took. Installing dependencies locally is ver
 Now lets do what we've all been waiting for and convert the above pipeline to now instead run the tasks inside of the devcontainer:
 
 ##### [.azdo/devcontainer-pipeline.yml](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/.azdo/devcontainer-pipeline.yml)
+
 ```yml
 steps:
       # Build the devcontainer
@@ -144,7 +148,7 @@ steps:
               -c Invoke-Pester -EnableExit
 ```
 
-### Build times
+### Devcontainer build times
 
 Below we can see that we've shaved off a few seconds, but nothing amazing.
 
@@ -155,6 +159,7 @@ Below we can see that we've shaved off a few seconds, but nothing amazing.
 As a bonus, we can also cache our devcontainer image between runs to further reduce the time the builds take. Take a look at the YAML below:
 
 ##### [.azdo/devcontainer-caching-pipeline.yml](https://github.com/EliiseS/terraform-pester-devcontainer-example/blob/master/.azdo/devcontainer-caching-pipeline.yml)
+
 ```yml
     steps:
       # Initialize caching 
@@ -226,9 +231,9 @@ As a bonus, we can also cache our devcontainer image between runs to further red
 
 ### Alternatives to caching
 
-An alternatives to caching is using a container registry to save your image, such as the [azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) or [docker hub](https://docs.docker.com/docker-hub/). Infact [AzBrowze](https://github.com/lawrencegripper/azbrowse) is using docker hub for it's caching.
+An alternatives to caching is using a container registry to save your image, such as the [azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) or [docker hub](https://docs.docker.com/docker-hub/). In fact [AzBrowze](https://github.com/lawrencegripper/azbrowse) is using docker hub for it's caching.
 
-### Build times
+### Caching build times
 
 With cashing we can see that our run times actually increased the first time the build in run:
 

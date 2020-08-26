@@ -28,16 +28,17 @@ The steps for this load testing methodology consists of:
 1. Define scenarios 
 2. Run a load tests based on a scenario
 3. Create a hypothesis if unhappy with the results
-  1. Re-run load tests with the changes from the hypothesis
-  2. Go to step 3
-6. Repeat until all scenarios are covered 
+   1. Re-run load tests with the changes from the hypothesis
+   2. Go to step 3
+4. Repeat until all scenarios are covered 
 
 # Defining scenarios
 
 To begin the load tests, we first need to define test scenarios we wish to consider and the performance level we would like to achieve. These scenarios are the basis for the tests below.
 
 Here are examples of test scenarios used for the operator load testing:
-```
+
+```text
 Test Scenario 1:
 1. Create a Run with cluster information supplied (referred to as Runs Submit)
 2. Await the Run terminating
@@ -73,7 +74,7 @@ LOCUST_FILE=behaviours/scenario2_run_submit.py
 
 We document the state of environment before load tests, as seen below. Then proceed with a baseline run, which is the first load test run in a scenario. 
 
-```
+```text
 Setup
 Components
 MOCK_TAG=latest-20191219.3
@@ -95,7 +96,8 @@ An example of the metrics:
 
 
 From the above metrics we discovered these key points:
-```
+
+```text
 Run summary
 - Run completion time increasing, which is a static value set at 6 seconds, indicating there is a issue with handling the load somewhere
 - Requests to the MockAPI are decreasing and are in a spaced out pattern

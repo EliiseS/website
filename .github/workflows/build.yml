@@ -14,6 +14,16 @@ jobs:
       - name: Build devcontainer
         run: docker build -f .devcontainer/Dockerfile -t devcontainer .
 
+      - name: Lint
+        run: |
+          make sync-submodules
+          docker run \
+            --entrypoint /bin/bash \
+            -v $GITHUB_WORKSPACE:/src \
+            --workdir /src \
+            devcontainer \
+            -c make lint
+
       - name: Build website
         run: |
           make sync-submodules

@@ -10,15 +10,15 @@ categories: [powershell, vscode]
 noSummary: true
 ---
 
-Here we'll cover setting up powershell on a dev container with a `debian:buster` baseimage.
+Here we'll cover setting up PowerShell on a devcontainer with a `debian:buster` base image.
 
-At the bottom of this article you can also find the full [devcontainer.json](#devcontainerjson) and [dockerimage](#dockerimage), which you can skip to.
+At the bottom of this article you can also find the full [devcontainer.json](#devcontainerjson) and [docker image](#dockerimage), which you can skip to.
 
-Credit to: https://www.phillipsj.net/posts/powershell-as-default-shell-on-ubuntu/
+Credit to: <https://www.phillipsj.net/posts/powershell-as-default-shell-on-ubuntu/>
 
-# Installing Powershell 7
+# Installing PowerShell 7
 
-Here's the PowerShell install snippet from our debian dockerfile.
+Here's the PowerShell install snippet from our Debian Dockerfile.
 
 ```Dockerfile
 # Install PowerShell 7
@@ -31,7 +31,7 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
 
 # Set PowerShell as default shell
 
-Next to set powershell as our default shell we must find it in the list of available shells with:
+Next to set PowerShell as our default shell we must find it in the list of available shells with:
 
 ```bash
 $ cat /etc/shells
@@ -67,7 +67,7 @@ RUN \
 
 # Complete files
 
-## Dockerimage
+## Docker image
 
 ```Dockerfile
 FROM debian:buster
@@ -124,5 +124,5 @@ ENV DEBIAN_FRONTEND=dialog
 
 These are the issues that I've run into:
 
-- PowerShell Core has fewer modules and commands available when compared to Powershell
-- `Remove-Item` command has been unusable due to exasperated results with a known issue: https://github.com/PowerShell/PowerShell/issues/8211
+- PowerShell Core has fewer modules and commands available when compared to PowerShell
+- `Remove-Item` command has been unusable due to exasperated results with a known issue: <https://github.com/PowerShell/PowerShell/issues/8211>

@@ -25,7 +25,7 @@ In this post I'd like to give a short overview on the parts needed to add monito
 
 ## Create a GO API with Prometheus `/metrics` endpoint
 
-Here's a simple GO API that'll have an welcome page at `/` and a metrics page at `/metrics`, which will display metrics from the API. The `/metrics` will later be used to by Prometheus Operator to scrape data about the API
+Here's a simple GO API that will have an welcome page at `/` and a metrics page at `/metrics`, which will display metrics from the API. The `/metrics` will later be used to by Prometheus Operator to scrape data about the API
 
 ```GO
 package main
@@ -204,6 +204,7 @@ Password: prom-operator
 ```
 
 Create charts with metrics such as
-```
+
+```text
 increase(go_api_requests_total[1m])
 ```

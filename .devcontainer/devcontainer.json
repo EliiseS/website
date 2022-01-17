@@ -1,12 +1,15 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.110.0/containers/ubuntu-18.04-git
 {
-  "name": "Ubuntu 18.04 & Git",
+  "name": "Hugo website",
   "dockerFile": "Dockerfile",
   // Set *default* container specific settings.json values on container create.
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
+  "mounts": [
+    // Keep command history 
+    "source=ostf-bashhistory,target=/commandhistory,type=volume",
+    // Use hosts docker socket
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+],
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
     "bungcip.better-toml",

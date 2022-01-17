@@ -8,7 +8,7 @@ layoutdir = "layouts"
 publishdir = "public"
 summaryLength = 1
 # analytics
-GoogleAnalytics = "UA-173967641-1"
+googleAnalytics = "UA-173967641-1"
 
 theme = "AllinOne"
 title = "Eliise Seling"

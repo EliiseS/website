@@ -63,4 +63,4 @@ This site uses a modified version of [AllinOne](https://github.com/orianna-zzo/A
 
 Open sourced under the [MIT license](LICENSE).
 
-Copyright (c) 2020 Eliise Seling
+Copyright (c) 2022 Eliise Seling

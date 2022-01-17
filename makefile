@@ -1,5 +1,5 @@
 build:
-	printf "\033[0;32mBuilding site...\033[0m\n"
+	@printf "\033[0;32m Building site...\033[0m\n"
 	cd website && hugo
 
 start:

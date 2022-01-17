@@ -1,6 +1,6 @@
 FROM debian:10-slim
 
-ARG HUGO_VERSION=0.74.2
+ARG HUGO_VERSION=0.92.0
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -32,6 +32,16 @@ RUN apt update \
     && npm install markdown-spellcheck -g \
     && npm install markdown-link-check -g \
     && npm install markdownlint-cli -g 
+
+# Customize bash
+RUN \
+    # Git command prompt
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1 && \
+    echo "if [ -f \"$HOME/.bash-git-prompt/gitprompt.sh\" ]; then GIT_PROMPT_ONLY_IN_REPO=1 && source $HOME/.bash-git-prompt/gitprompt.sh; fi" >> "/root/.bashrc" && \
+    # Install bash completion
+    apt-get update && \
+    apt-get -y install bash-completion && \
+    echo "source /usr/share/bash-completion/bash_completion" >> ~/.bashrc 
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
